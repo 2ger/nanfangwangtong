@@ -19,7 +19,7 @@ if($_GET["act"]=="del")
 }
 if($_GET["act"]=="repass")
 {
-	 $sql="update tbl_user set userpwd = 'e10adc3949ba59abbe56e057f20f883e' where id=".$_GET['id'];
+	 $sql="update tbl_user set userpwd = 'e10adc3949ba59abbe56e057f20f883e' where id=".$_GET['id'];//123456
 	 mysql_query($sql);
 	 mysql_close();
 	 echo "<script type='text/javascript'>alert('密码重置成功!');location.href='guserlist.php';</script>";
@@ -120,7 +120,9 @@ $(document).ready(function(){
 	$_id ='id='.$_GET['id'].'&';	
 */	
 	$query=mysql_query($sql);
-	while($row=mysql_fetch_array($query)){
+	$row=mysql_fetch_array($query);
+	print_r($row);
+	while($row){
 		$sqlcc = "select count(*) as ccc from tbl_info where userid = '".$row['userid']."'";
 		$querycc=mysql_query($sqlcc);
 		$rowcc=mysql_fetch_array($querycc);

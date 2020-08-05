@@ -109,7 +109,7 @@ $(function(){
 					<cite></cite><a href="adtasklist.php" target="rightFrame">任务列表</a>
 				</li>
                 <li>
-					<cite></cite><a href="adtasklist-supervip.php" target="rightFrame">任务列表-增加超级[测试中]</a>
+<!--					<cite></cite><a href="adtasklist-supervip.php" target="rightFrame">任务列表-增加超级[测试中]</a-->
 				</li>
 			</ul>
 		</dd>';

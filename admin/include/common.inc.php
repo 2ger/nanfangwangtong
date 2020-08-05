@@ -34,7 +34,7 @@ require QY_ROOT.'include/mysql.func.php';
 
 //连接数据库
 
-define('DB_HOST','127.0.0.1');//数据库连接地址,数据库接口（默认：3306)
+define('DB_HOST','localhost');//数据库连接地址,数据库接口（默认：3306)
 
 define('DB_USER','root');//数据库用户名 
 

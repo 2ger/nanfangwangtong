@@ -19,7 +19,8 @@
 			<h1 class="mui-title" style="color:#FFF;">登录</h1>
 	</header>
 	<div style="text-align: center;">
-		<img src="images/logo_login.png" style="width:50%;margin-top:50px;">
+		<img src="images/logo108.png" style="width:25%;margin-top:100px;">
+		<h1 style="color:#fff;font-size:1.5em;margin:20px">南方网通</h1>
 	</div>
 	<div style="width: 80%;margin:0 auto;">
 		<style>
@@ -55,78 +56,43 @@
 	</div>
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script>
-		/**
-		mui.post('http://api.ad.com/index.php/login/user',{
-			username:mui('mobile'),
-			password:'password'
-		},function(data){
-			
-		},'json'
-	);**/
+
 	document.getElementById("submit").addEventListener("tap",function(){
-		//mui.alert(document.getElementById("mobile").value);
+//		mui.alert(document.getElementById("mobile").value);
 		var username=document.getElementById("mobile").value;
 		var password1=document.getElementById("password").value;
 //		plus.storage.setItem('username', username);
 //		plus.storage.setItem('password', password1);
 //		mui.alert(plus.storage.getItem("username"));
-		//mui.alert(base_url);
+		mui.alert(base_url);
 		$.get(base_url+'index.php/login/userlogin',{username:username,password:password1},function(data){
+			console.log(data);
 			mui.alert(data.error);
 			plus.storage.setItem('token', data.data.token);
 			plus.storage.setItem('username',data.data.username);
 			//alert(data.data.username);
 			location.href="gerenzhongxin.html";
 		},'json');
-//		mui.ajax({
-//			url:"http://api.ad.com/index.php/login/user",
-//			data:{username:username,password:password1},
-//			
-//			crossDomain:true,
-//			type:'POST',
-//			timeout:10000,
-//			headers:{'Content-Type':'application/json'},
-//			success:function(data){
-//				mui.alert(data.data.id);
-//			},
-//			error:function(xhr,type,errorThrown){
-//				//异常处理；
-//				console.log(type);
-//			}
+
+
+		
+	});
+
+
+//	document.getElementById("reg").addEventListener("tap",function(){
+//		mui.openWindow({
+//			url:"reg.html",
+//			id:"reg"
 //		});
-
-		
-	});
-	
-//	document.getElementById("yz").addEventListener("tap",function(){
-//			var token=plus.storage.getItem("token");
-//			$.get(base_url+'index.php/login/loginstatus',{token:token},function(data){
-//			if(!data.status){
-//				mui.alert(data.error);
-//			}else{
-//				mui.alert(data.error);
-//				plus.storage.clear();
-//			}
-//			mui.alert(plus.storage.getItem("token"));
-//			//plus.storage.setItem('token', data.data.token);
-//		},'json');
 //	});
-
-	document.getElementById("reg").addEventListener("tap",function(){
-		mui.openWindow({
-			url:"reg.html",
-			id:"reg"
-		});
-	});
 	
-	setTimeout(function(){
-		
-		document.getElementById("zhaohuimima").addEventListener("tap",function(){
-			location.href=base_url+"index.php/fun/zhaohuimima";
-		});
-		
-	},500);
-	
+//	setTimeout(function(){
+//		
+//		document.getElementById("zhaohuimima").addEventListener("tap",function(){
+//			location.href=base_url+"index.php/fun/zhaohuimima";
+//		});
+//		
+//	},500);
 	
 	</script>
 </body>

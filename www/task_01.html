@@ -53,6 +53,7 @@
 			$(document).ready(function(){
 				setTimeout(function(){
 					var token=plus.storage.getItem("token");
+					console.log('token',token);
 					$.get(base_url+"index.php/ad/list?token="+token,{},function(data){
 						$("#ad_list").html(data);
 					});

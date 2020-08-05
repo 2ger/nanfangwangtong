@@ -58,7 +58,7 @@ $html=<<<EOF
 		</div>
 		
 		<div>
-			<img src="https://i.loli.net/2018/11/16/5bee9a59edcfb.png" width="100%">
+		<!--	<img src="https://i.loli.net/2018/11/16/5bee9a59edcfb.png" width="100%"> -->
 		</div>
 EOF;
         echo $html;
