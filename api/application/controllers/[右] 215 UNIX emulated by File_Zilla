@@ -22,7 +22,7 @@ class Index  extends Restserver\Libraries\REST_Controller{
     public function zhuanyongguize_get(){
 $html=<<<EOF
         <div style="background-color: #FFF; margin-top:44px; padding:0 30px;">
-			<p style="line-height:4; color:#FF0000;">加入聚友传媒，开启躺赚人生，如何发圈赚佣？</p>
+			<p style="line-height:4; color:#FF0000;">加入南方网通，开启躺赚人生，如何发圈赚佣？</p>
 			<p style="border-left:1px solid #e7e7e7; height:50px; margin-bottom:0; padding-left:15px; position:relative;">
 				<span class="mui-badge mui-badge-danger" style="position:absolute; left:-10px;top:2px;">1</span>
 				扫码下载APP
@@ -58,7 +58,7 @@ EOF;
 $html=<<<EOF
         <div style="margin:44px 0;padding:20px;">
 			
-			<div style="line-height:1.75;">欢迎在聚友传媒投放广告，你的广告将在十亿朋友圈中曝光，广告投放请咨询一下以下微信号：</div>
+			<div style="line-height:1.75;">欢迎在南方网通投放广告，你的广告将在十亿朋友圈中曝光，广告投放请咨询一下以下微信号：</div>
 			
 			<div style="width:13rem; height:13rem; margin:0 auto; margin-top:50px; background-image:url(images/19.png); background-repeat: no-repeat; background-size:cover;">
 				

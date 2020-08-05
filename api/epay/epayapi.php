@@ -35,7 +35,7 @@ require_once("lib/epay_submit.class.php");
 		//付款金额
         $money = $_POST['WIDtotal_fee'];
 		//站点名称
-        $sitename = '聚友传媒';
+        $sitename = '南方网通';
         //必填
 
         //订单描述

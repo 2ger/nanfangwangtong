@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";   //MYSQL数据库登陆账号
 $db = "ewmadmin";     //所使用MYSQL数据库名称
-$password = "168168";   //MYSQL数据库登陆密码
+$password = "root";   //MYSQL数据库登陆密码
 
 //以下参数如果对系统不了解请不要随意修改
 $keytype = 0;//0或者1

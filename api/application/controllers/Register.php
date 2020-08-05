@@ -121,7 +121,7 @@ class Register extends CI_Controller {
                         
                         
                         $hash= mt_rand(100000,999999);
-                        $content="【聚友传媒】您的验证码是{$hash},10分钟内有效！";//要发送的短信内容
+                        $content="【南方网通】您的验证码是{$hash},10分钟内有效！";//要发送的短信内容
                         $arr=array(
                             'phone'=>$phone,
                             'code'=>$hash,

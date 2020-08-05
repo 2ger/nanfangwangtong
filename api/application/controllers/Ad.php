@@ -74,7 +74,7 @@ class Ad extends Restserver\Libraries\REST_Controller {
 
         // $list_data[0]=array(
         //     'title'=>'招募合伙人',
-        //     'content'=>'聚友传媒拿出巨额奖励鼓励市场推广！七天内完成一级五十人，二级三百人，公司直接给予奖励现金一万元！现金一万元！等你来拿！只需要多动动手指头！',
+        //     'content'=>'南方网通拿出巨额奖励鼓励市场推广！七天内完成一级五十人，二级三百人，公司直接给予奖励现金一万元！现金一万元！等你来拿！只需要多动动手指头！',
         //     'tu1'=>'http://'.$_SERVER['SERVER_NAME'].'/erweima/tuiguang1.jpg',
         //     'tu2'=>'http://'.$_SERVER['SERVER_NAME'].'/erweima/tuiguang2.jpg',
         // );
