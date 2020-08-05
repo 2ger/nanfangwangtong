@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>聚友传媒</title>
+    <script src="/skins/js/mui.min.js"></script>
+    <link href="/skins/css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+    <link rel="stylesheet" type="text/css" href="/skins/css/icons-extra.css" />
+		<!--App自定义的css-->
+	<link rel="stylesheet" type="text/css" href="/skins/css/app.css"/>
+</head>
+<body style="background-color:#fe434e;">
+	<header id="header" class="mui-bar mui-bar-transparent">
+			
+			<h1 class="mui-title" style="color:#FFF;">注册</h1>
+	</header>
+	<div style="text-align: center;">
+		<img src="/skins/images/logo_login.png" style="width:50%;margin-top:50px;">
+	</div>
+	<div style="width: 80%;margin:0 auto;">
+		<style>y
+			.mui-icon-eye{ color:#FFFFFF;}
+			#mobile::-webkit-input-placeholder{color: #FFFFFF;}
+                        #code::-webkit-input-placeholder{color: #FFFFFF;}
+			#yanzhengma::-webkit-input-placeholder{color: #FFFFFF;}
+			#password::-webkit-input-placeholder{color: #FFFFFF;}
+			#repassword::-webkit-input-placeholder{color: #FFFFFF;}
+			#tuijianren::-webkit-input-placeholder{color: #FFFFFF;}
+		</style>
+		<form id="reg">
+			<div class="mui-input-row">
+				<span class="mui-icon mui-icon-person" style="color:#FFF; position: absolute; left:10px; top:8px;"></span>
+				<input id="mobile" type="text" style="border-radius:20px; background-color: #fe434e; border:1px solid #FFFFFF; color:#FFFFFF; padding:0 0 0 40px;" placeholder="手机号">
+			</div>
+                        <!--div class="mui-input-row">
+				<span class="mui-icon mui-icon-paperplane" style="color:#FFF; position: absolute; left:10px; top:8px;"></span>
+                                <span style="color:#FFF; position: absolute; right:30px; top:8px;"><img  title="点击刷新" src="/index.php/register/code" onclick="this.src='/index.php/register/code?'+Math.random();"/></span>
+				<input id="code" type="text" style="border-radius:20px; background-color: #fe434e; border:1px solid #FFFFFF; color:#FFFFFF; padding:0 120px 0 40px;" placeholder="验证码">
+			</div-->
+                        
+			<div class="mui-input-row">
+				<span class="mui-icon mui-icon-paperplane" style="color:#FFF; position: absolute; left:10px; top:8px;"></span>
+                                <span id="huoqu" style="color:#FFF; position: absolute; right:20px; top:8px;">| 获取</span>
+                                <span id="miao" style="color:#FFF; position: absolute; right:20px; top:8px; display: none;">| 120s</span>
+				<input id="yanzhengma" type="text" style="border-radius:20px; background-color: #fe434e; border:1px solid #FFFFFF; color:#FFFFFF; padding:0 120px 0 40px;" placeholder="手机验证码">
+			</div>
+			<div class="mui-input-row mui-password">
+				<span class="mui-icon mui-icon-locked" style="color:#FFF; position: absolute; left:10px; top:8px;"></span>
+				<input id="password" type="password" style="border-radius:20px; background-color: #fe434e; border:1px solid #FFFFFF; color:#FFFFFF; padding:0 0 0 40px;" placeholder="密码">
+			</div>
+			
+			<div class="mui-input-row mui-password">
+				<span class="mui-icon mui-icon-refresh" style="color:#FFF; position: absolute; left:10px; top:8px;"></span>
+				<input id="repassword" type="password" style="border-radius:20px; background-color: #fe434e; border:1px solid #FFFFFF; color:#FFFFFF; padding:0 0 0 40px;" placeholder="确认密码">
+			</div>
+			
+			<div class="mui-input-row">
+				<span class="mui-icon-extra mui-icon-extra-gift" style="color:#FFF; position: absolute; left:10px; top:8px;"></span>
+				<input id="tuijianren" value="<?php echo $tuijianren; ?>" type="text" style="border-radius:20px; background-color: #fe434e; border:1px solid #FFFFFF; color:#FFFFFF; padding:0 0 0 40px;" placeholder="推荐人">
+			</div>
+			
+			<button type="button" id="submit" class="mui-btn mui-btn-block mui-btn-outlined" style="border:0; border-radius:30px; background-color:#FFF;">确认注册</button>
+			<a href="/index.php/register/download" style="color:#FFFFFF; margin-top:20px;display: block;">已有账号，直接下载</a>
+			
+		</form>
+		
+		
+	</div>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<script>
+		$("#submit").on("tap",function(){
+			var username=document.getElementById("mobile").value;
+			var password=document.getElementById("password").value;
+			var repassword=document.getElementById("repassword").value;
+			var tuijianren=document.getElementById("tuijianren").value;
+                        var yanzhengma=document.getElementById("yanzhengma").value;
+			$.post("/index.php/register/reg/",{
+				username:username,
+				password:password,
+				repassword:repassword,
+				tuijianren:tuijianren,
+                                yanzhengma:yanzhengma
+			},function(data){
+				if(data=='200'){
+					alert("注册完成！去下载【聚友传媒APP】");
+                                        location.href="/index.php/register/download";
+				}else{
+					alert(data);
+				}
+			});
+		});
+                
+                
+                
+                $("#huoqu").click(function(){
+                    var phone=$("#mobile").val();
+                    var code=$("#code").val();
+                    $("#huoqu").hide();
+                    $("#miao").show();
+                    $.get("/index.php/register/sms",{
+                        phone:phone,
+                        code:code
+                    },function(data){
+                        if(data=='短信发送成功'){
+                            var j=120;
+                            var i=setInterval(function(){
+                                j--;
+                                $("#miao").html("| "+j);
+                                if(j<=0){
+                                    $("#miao").hide();
+                                    $("#huoqu").show();
+                                    clearInterval(i);
+                                }
+                            },1000);
+                        }else{
+                            $("#huoqu").show();
+                            $("#miao").hide();
+                            mui.alert(data);
+                            
+                        }
+                    });
+                });
+                
+                
+	</script>
+        
+        
+	
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>聚友传媒</title>
+    <script src="/skins/js/mui.min.js"></script>
+    <link href="/skins/css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+    <link rel="stylesheet" type="text/css" href="/skins/css/icons-extra.css" />
+		<!--App自定义的css-->
+	<link rel="stylesheet" type="text/css" href="/skins/css/app.css"/>
+</head>
+<body style="background-color:#fe434e;">
+	<header id="header" class="mui-bar mui-bar-transparent">
+			
+			<h1 class="mui-title" style="color:#FFF;"></h1>
+	</header>
+	<div style="text-align: center;">
+		<img src="/skins/images/logo_login.png" style="width:50%;margin-top:50px;">
+	</div>
+	<div style="width: 80%;margin:0 auto;">
+		
+		<a href="https://fir.im/venr" class="mui-btn mui-btn-success mui-btn-block">点击下载(安卓)</a>
+		
+	</div>
+	<div style="width: 80%;margin:0 auto;">
+		
+		<a href="https://fir.im/6edb" class="mui-btn mui-btn-success mui-btn-block">点击下载(苹果)</a>
+		
+	</div>
+	<script type="text/javascript">
+		function is_weixin() {
+		    var ua = navigator.userAgent.toLowerCase();
+		    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+		        return true;
+		    } else {
+		        return false;
+		    }
+		}
+		var isWeixin = is_weixin();
+		var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
+		function loadHtml(){
+			var div = document.createElement('div');
+			div.id = 'weixin-tip';
+			div.innerHTML = '<p><img src="/skins/images/live_weixin.png" alt="微信打开" width="100%"/></p>';
+			document.body.appendChild(div);
+		}
+		
+		function loadStyleText(cssText) {
+	        var style = document.createElement('style');
+	        style.rel = 'stylesheet';
+	        style.type = 'text/css';
+	        try {
+	            style.appendChild(document.createTextNode(cssText));
+	        } catch (e) {
+	            style.styleSheet.cssText = cssText; //ie9以下
+	        }
+            var head=document.getElementsByTagName("head")[0]; //head标签之间加上style样式
+            head.appendChild(style); 
+	    }
+	    var cssText = "#weixin-tip{position: fixed; left:0; top:0; background: rgba(0,0,0,0.8); filter:alpha(opacity=80); width: 100%; height:100%; z-index: 100;} #weixin-tip p{text-align: center; margin-top: 10%; padding:0 5%;}";
+		if(isWeixin){
+			loadHtml();
+			loadStyleText(cssText);
+		}
+	</script>
+	
+</body>
+</html>
