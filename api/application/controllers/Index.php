@@ -250,7 +250,7 @@ EOF;
                     if($_REQUEST['supervip']==1){
 $html=<<<EOF
                 <div style="padding:20px 15px;">
-                <form action="http://{$_SERVER['SERVER_NAME']}/ldpay/alipay.php" method="post" name="alipayment">
+                <form action="http://{$_SERVER['SERVER_NAME']}/api/ldpay/alipay.php" method="post" name="alipayment">
                 <input type="hidden" name="out_trade_no" value="{$order_id}">
                 <input type="hidden"  name="WIDsubject" value="升级超级VIP会员">
                 <input type="hidden"  name="total_fee" value="1198">
@@ -259,7 +259,7 @@ $html=<<<EOF
                 </form>
 
 <!--
-                <form action="http://{$_SERVER['SERVER_NAME']}/ldpay/alipay.php" method="post" name="alipayment">
+                <form action="http://{$_SERVER['SERVER_NAME']}/api/ldpay/alipay.php" method="post" name="alipayment">
                 <input type="hidden" name="out_trade_no" value="{$order_id}">
                 <input type="hidden"  name="WIDsubject" value="升级VIP会员">
                 <input type="hidden"  name="total_fee" value="1198">
@@ -271,7 +271,7 @@ EOF;
                     }else{
 $html=<<<EOF
                 <div style="padding:20px 15px;">
-                <form action="http://{$_SERVER['SERVER_NAME']}/ldpay/alipay.php" method="post" name="alipayment">
+                <form action="http://{$_SERVER['SERVER_NAME']}/api/ldpay/alipay.php" method="post" name="alipayment">
                 <input type="hidden" name="out_trade_no" value="{$order_id}">
                 <input type="hidden"  name="WIDsubject" value="升级VIP会员">
                 <input type="hidden"  name="total_fee" value="298">

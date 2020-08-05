@@ -105,7 +105,7 @@ if($_GET['act']=='edit'){
 	$pwdsql
 	qq='".$_POST["qq"]."'
 	WHERE id=".$_POST["id"];
-	//echo $sql;exit;
+	// echo $sql;exit;
 	mysql_query($sql);
 	if(mysql_affected_rows() == 1){
 		xd_close();

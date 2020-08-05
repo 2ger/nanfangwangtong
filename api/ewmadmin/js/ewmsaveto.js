@@ -1,1 +1,0 @@
-﻿ alert('添加失败,移动文件出错');var index = parent.layer.getFrameIndex(window.name);parent.layer.close(index);

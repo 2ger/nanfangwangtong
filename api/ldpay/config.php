@@ -2,7 +2,7 @@
 session_start();
 header("Content-type:text/html;charset=utf-8");
 #数据库连接
-include_once '../ewmadmin/inc/config.php';//二维码系统 配置文件路径
+include_once '../../ewmadmin/inc/config.php';//二维码系统 配置文件路径
 $aa = $host;               //数据库连接地址
 $bb = $user;                   //数据库用户名
 $cc = $password;                  //数据库密码

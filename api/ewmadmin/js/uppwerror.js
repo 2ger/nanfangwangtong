@@ -1,1 +1,0 @@
-﻿alert("密码不能为空，正在返回……");window.history.back(-1);

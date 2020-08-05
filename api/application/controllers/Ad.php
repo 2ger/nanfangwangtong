@@ -97,7 +97,6 @@ class Ad extends Restserver\Libraries\REST_Controller {
     </li><ul>
          * 
          **/
-        
         $this->db->where("user_id", $this->userinfo->id);
         $today_start_time=strtotime(date("Y-m-d")." 00:00:00");
         $today_end_time=strtotime(date("Y-m-d")." 00:00:00")+24*3600;
@@ -107,6 +106,9 @@ class Ad extends Restserver\Libraries\REST_Controller {
         
         $query= $this->db->get("ads_task");
         $ads_id=array();
+        // $ros = $query->result();
+        // print_r($ros);
+        // die('22');
         foreach($query->result() as $k=>$v){
             $ads_id[]=$v->aid;
         }

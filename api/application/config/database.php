@@ -13,7 +13,7 @@ $db['default'] = array(
 	'dbdriver' => 'mysqli',
 	'dbprefix' => 'tbl_',
 	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
+	'db_debug' => (ENVIRONMENT !== 'production'),//testing
 	'cache_on' => FALSE,
 	'cachedir' => '',
 	'char_set' => 'utf8',

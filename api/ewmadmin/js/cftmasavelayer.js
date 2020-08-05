@@ -1,1 +1,0 @@
-﻿ alert('添加失败,二维码备注重复');var index = parent.layer.getFrameIndex(window.name);parent.layer.close(index);

@@ -120,9 +120,9 @@ $(document).ready(function(){
 	$_id ='id='.$_GET['id'].'&';	
 */	
 	$query=mysql_query($sql);
-	$row=mysql_fetch_array($query);
-	print_r($row);
-	while($row){
+	// $row=mysql_fetch_array($query);
+	// print_r($row);
+	while($row=mysql_fetch_array($query)){
 		$sqlcc = "select count(*) as ccc from tbl_info where userid = '".$row['userid']."'";
 		$querycc=mysql_query($sqlcc);
 		$rowcc=mysql_fetch_array($querycc);

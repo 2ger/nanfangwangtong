@@ -1,1 +1,0 @@
-﻿ alert('添加失败,文件类型不对');var index = parent.layer.getFrameIndex(window.name);parent.layer.close(index);
