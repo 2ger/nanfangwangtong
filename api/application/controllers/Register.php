@@ -141,8 +141,8 @@ class Register extends CI_Controller {
                         "50" => "内容含有敏感词"
                         );
                         $smsapi = "http://api.smsbao.com/";
-                        $user = "a736623404"; //短信平台帐号
-                        $pass = md5("a88888888a"); //短信平台密码
+                        $user = "a18682555494"; //短信平台帐号
+                        $pass = md5("a123456789"); //短信平台密码
 
                         $phone = "{$phone}";//要发送短信的手机号码
                         $sendurl = $smsapi."sms?u=".$user."&p=".$pass."&m=".$phone."&c=".urlencode($content);
