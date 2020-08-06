@@ -37,7 +37,7 @@
 			
 			setTimeout(function(){
 				var token=plus.storage.getItem("token");
-				//alert(token);
+				// alert(base_url);
 				$.get(base_url+"index.php/index/chengweivip?token="+token,{},function(data){
 					$("#content").html(data);
 				});

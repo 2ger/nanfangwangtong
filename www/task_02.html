@@ -59,7 +59,7 @@
 		<script>
 			
 		//    var imgSrc = "img/1.jpg";
-		var base_url = 'http://haokan.life/';
+		 // var base_url = 'http://nanfang.185.12.ac.cn/';
 		      function getBase64(img){//传入图片路径，返回base64
 		        function getBase64Image(img,width,height) {//width、height调用时传入具体像素值，控制大小 ,不传则默认图像大小
 		          var canvas = document.createElement("canvas");
@@ -115,10 +115,8 @@
 				var image_data=$("#image_data").val();
 				var aid=$("#aid").val();
 				
-				alert(aid);
-				alert(token);
-				
-				
+				// alert(aid);
+				// alert(token);
 				
 				console.log(base_url+"index.php/ad/uploadtask");
 				$.post(base_url+"index.php/ad/uploadtask",{token:token,aid:aid,image_data:image_data},function(data){

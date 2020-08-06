@@ -64,7 +64,7 @@
 //		plus.storage.setItem('username', username);
 //		plus.storage.setItem('password', password1);
 //		mui.alert(plus.storage.getItem("username"));
-		mui.alert(base_url);
+//		console.log(base_url);
 		$.get(base_url+'index.php/login/userlogin',{username:username,password:password1},function(data){
 			console.log(data);
 			mui.alert(data.error);

@@ -97,12 +97,12 @@
 			        
 			        
 			        
-            		<li class="mui-table-view-cell">
+            		<!--<li class="mui-table-view-cell">
 						<a class="mui-navigate-right" href="javascript:void(0)" id="zhuanchu">
 							<img src="images/63.png">
 							转出
 						</a>
-					</li>
+					</li>-->
 				</ul>
 				
 				<div style="height:8px;"></div>
@@ -121,7 +121,10 @@
 		</div>
 		<!--单页面结束-->
 		
-		
+		<br />
+		<br />
+		<br />
+		<br />
 		
 		<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item" href="javascript:void(0)" id="home">
@@ -234,18 +237,16 @@
 				  });
 			});
 			
-			document.getElementById("zhuanchu").addEventListener("tap",function(){
-				mui.openWindow({
-				    url: 'zhuanchu.html', 
-				    id:'zhuanchu'
-				  });
-			});
+//			document.getElementById("zhuanchu").addEventListener("tap",function(){
+//				mui.openWindow({
+//				    url: 'zhuanchu.html', 
+//				    id:'zhuanchu'
+//				  });
+//			});
 			
 			document.getElementById("logout").addEventListener("tap",function(){
 				plus.storage.clear();
-				
 				location.href="index.html";
-				
 			});
 		</script>
 </body>

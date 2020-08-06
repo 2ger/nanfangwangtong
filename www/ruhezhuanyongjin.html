@@ -31,6 +31,7 @@
 		
 		<script>
 			setTimeout(function(){
+				console.log('url:'+base_url+"index.php/index/zhuanyongguize")
 				$.get(base_url+"index.php/index/zhuanyongguize",{},function(data){
 					$("#content").html(data);
 				});
