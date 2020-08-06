@@ -74,7 +74,7 @@ $html=<<<EOF
 			
 			<div style="width:13rem; height:13rem; margin:0 auto; margin-top:50px; background-image:url(images/19.png); background-repeat: no-repeat; background-size:cover;">
 				
-				<img src="images/erweima.png" style="width:9rem; margin:2rem;">
+				<img src="http://nanfang.185.12.ac.cn/kefu.jpg" style="width:9rem; margin:2rem;">
 				
 			</div>
 			
@@ -83,7 +83,7 @@ $html=<<<EOF
 		</div>
 		
 		<div style="background-color: #FFF; color:#333; text-align: center; line-height:50px;">
-			yjl521b
+			fcg2020888
 		</div>
 EOF;
         echo $html;
@@ -110,14 +110,14 @@ $html=<<<EOF
 			
 			<ul class="mui-table-view">
 				 <li class="mui-table-view-cell">微信客服
-				 <span style="float: right;color:#ff0000;">yjl521b</span>
+				 <span style="float: right;color:#ff0000;">fcg2020888</span>
 				 </li>
-		         <li class="mui-table-view-cell">QQ客服
+		         <!--li class="mui-table-view-cell">QQ客服
 				 <span style="float: right;color:#ff0000;">644777789</span>
 				 </li>
 		         <li class="mui-table-view-cell">咨询热线
 				 <span style="float: right;color:#ff0000;"></span>
-				 </li>
+				 </li -->
 			</ul>
 			
 			<div style="height:5px;"></div>

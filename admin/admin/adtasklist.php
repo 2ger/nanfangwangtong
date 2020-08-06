@@ -44,13 +44,14 @@ if($_GET["act"]=="delall"){
 
 
 if($_GET['act']=='ischeck'){
-    //返佣金
+    //更新状态
     $sql="update tbl_ads_task set ischeck={$_GET['status']} where id={$_GET['id']}";
     mysql_query($sql);
 
     // error_reporting(E_ALL);
     // ini_set('display_errors', 1);
 
+    //返佣金
     $sql="select * from tbl_ads_task where id={$_GET['id']}";
     $result=mysql_query($sql);
     $row = mysql_fetch_array($result);
@@ -65,9 +66,9 @@ if($_GET['act']=='ischeck'){
 
     //写入交易日志
     $sql="insert into tbl_acount_log (user_id,username,shouru,addtime,leixing) values ({$row['id']},'{$row['userid']}',10,{$time},'用户发圈奖励')";
-    // exit($sql);
+  
     mysql_query($sql);
-
+  // exit($sql);
     
     if(trim($row['shuyu'])){
         $sql="select * from tbl_user where userid='{$row['shuyu']}'";
@@ -76,9 +77,11 @@ if($_GET['act']=='ischeck'){
         if(!empty($row)){
             $yi=$row['userid'];
             $sql="update tbl_user set money=money+6 where userid='{$yi}'";
+    // exit($sql);
             mysql_query($sql);//直接会员加8
             //写入交易日志
             $sql="insert into tbl_acount_log (user_id,username,shouru,addtime,leixing) values ({$row['id']},'{$row['userid']}',6,{$time},'1级发圈奖励')";
+    // exit($sql);
             mysql_query($sql);
             
             if(trim($row['shuyu'])){
