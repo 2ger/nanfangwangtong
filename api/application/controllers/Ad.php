@@ -253,7 +253,7 @@ EOF;
             $q=$this->db->get("ads");
             $r= $q->row();
             $html.='<div class="mui-card">
-            <div class="mui-card-content" style="background-image:url(images/1.jpg); background-repeat: no-repeat; background-position:center center; background-size:cover; height:200px;"></div><div class="mui-card-footer"><span class="mui-card-link">'.date("Y-m-d",$row->addtime)."&nbsp;&nbsp;".$r->title.'</span><span class="mui-card-link">'.($row->ischeck==1?"<font color='green'>已审核</font>":"<font color='red'>未审核</font>").'</span></div></div>';
+            <!--div class="mui-card-content" style="background-image:url(images/1.jpg); background-repeat: no-repeat; background-position:center center; background-size:cover; height:200px;"></div--><div class="mui-card-footer"><span class="mui-card-link">'.date("Y-m-d",$row->addtime)."&nbsp;&nbsp;".$r->title.'</span><span class="mui-card-link">'.($row->ischeck==1?"<font color='green'>已审核</font>":"<font color='red'>未审核</font>").'</span></div></div>';
             $i++;      
         }
         $html.="</div></div>";

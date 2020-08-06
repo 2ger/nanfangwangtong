@@ -14,7 +14,7 @@ class Register extends CI_Controller {
         $tuijianren=$r->userid;
         $data=array();
         $data['tuijianren']=$tuijianren;
-        $this->load->view("reg.html",$data);
+        $this->load->view("register.html",$data);
         
     }
     
@@ -29,12 +29,12 @@ class Register extends CI_Controller {
             $this->db->where("phone",$username);
             $this->db->where('code',$yanzhengma);
             $query= $this->db->get("sms");
-            $row=$query->row();
-            //echo "{$username}+{$yanzhengma}";
-            if(isset($row)){
-                $add_time=$row->add_time;
-                $end_time=$add_time+10*60;
-                if($end_time>time()){
+            // $row=$query->row();
+         
+            // if(isset($row)){
+                // $add_time=$row->add_time;
+                // $end_time=$add_time+10*60;
+                // if($end_time>time()){
                     
                     
                     $subject = $username;
@@ -68,6 +68,7 @@ class Register extends CI_Controller {
                                         'ctime'=>date("Y-m-d H:i:s",time()),
                                         'beizhu2'=>'自助注册',
                                     );
+
                                     $this->db->insert('user',$array);
                                     echo "200";exit();
 
@@ -89,12 +90,12 @@ class Register extends CI_Controller {
                     
                     
                     
-                }else{
-                    echo "手机验证码已过期";exit();
-                }
-            }else{
-                echo "手机验证码错误！";exit();
-            }
+                // }else{
+                //     echo "手机验证码已过期";exit();
+                // }
+            // }else{
+            //     echo "手机验证码错误！";exit();
+            // }
             
         }else{
             echo "用户名或密码不能为空！";exit();

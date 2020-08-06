@@ -322,13 +322,13 @@ EOF;
                 if($end_time>time()){
                     
                     $this->load->library("Qrcode");
-                    $this->qrcode->png("http://{$_SERVER['SERVER_NAME']}/index.php/register/?t={$r->id}","erweima/{$r->id}.png",QR_ECLEVEL_H,6);
+                    $this->qrcode->png("http://{$_SERVER['SERVER_NAME']}/api/index.php/register/?t={$r->id}","user_qrcode/{$r->id}.png",QR_ECLEVEL_H,6);
                     
                     
                     //header("Content-type: image/png");
-                    $im = imagecreatefrompng("erweima/haibao.png");
+                    $im = imagecreatefrompng("user_qrcode/haibao.png");
 
-                    $head_img_path = "erweima/{$r->id}.png";
+                    $head_img_path = "user_qrcode/{$r->id}.png";
                     
                     $head_img = imagecreatefrompng($head_img_path);
 
@@ -339,12 +339,12 @@ EOF;
 
                     
 
-                    imagepng($im,"erweima/{$r->id}_haibao.png");
+                    imagepng($im,"user_qrcode/{$r->id}_haibao.png");
                     imagedestroy($im);
                     
                     
 $html=<<<EOF
-               <img src="http://{$_SERVER['SERVER_NAME']}/erweima/{$r->id}_haibao.png" width="100%" data-preview-src="" data-preview-group="1"/>
+               <img src="http://{$_SERVER['SERVER_NAME']}/api/user_qrcode/{$r->id}_haibao.png" width="100%" data-preview-src="" data-preview-group="1"/>
 EOF;
                 echo $html;    
                     
