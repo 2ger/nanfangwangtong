@@ -32,6 +32,7 @@ class Index  extends Restserver\Libraries\REST_Controller{
      * 如何赚佣
      */
     public function zhuanyongguize_get(){
+        // 或支付1198成为超级VIP
 $html=<<<EOF
         <div style="background-color: #FFF; margin-top:44px; padding:0 30px;">
 			<p style="line-height:4; color:#FF0000;">加入南方网通，开启躺赚人生，如何发圈赚佣？</p>
@@ -41,7 +42,7 @@ $html=<<<EOF
 			</p>
 			<p style="border-left:1px solid #e7e7e7; height:50px; margin-bottom:0; padding-left:15px; position:relative;">
 				<span class="mui-badge mui-badge-danger" style="position:absolute; left:-10px;top:2px;">2</span>
-				支付298元成为VIP 或支付1198成为超级VIP
+				支付298元成为VIP 
 			</p>
 			<p style="border-left:1px solid #e7e7e7; height:50px; margin-bottom:0; padding-left:15px; position:relative;">
 				<span class="mui-badge mui-badge-danger" style="position:absolute; left:-10px;top:2px;">3</span>
@@ -191,7 +192,7 @@ EOF;
         
         if($r->supervip==1){
             
-$html .=<<<EOF
+$html2 .=<<<EOF
 			
 			<div style="text-align: center; margin:30px 0; font-size:1.5rem; color:green;">
 				您已成为超级VIP会员, 三倍赚钱！
@@ -200,7 +201,7 @@ $html .=<<<EOF
 EOF;
         }else{
         //20181102
-$html .=<<<EOF
+$html2 .=<<<EOF
 			
 			<div style="text-align: center; margin:30px 0; text-decoration: line-through;">
 			超级VIP	原价：￥<b>1998</b>

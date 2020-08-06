@@ -65,7 +65,7 @@ if ($bjsnk===0)
 				
 				
 				if($money3>$money){
-						$temp=$money3-$money;
+						$temp=$money3-$money;//加尾数，如 0.001,0.002
 						$sql="update tbl_user set money=money+{$temp} where id='{$row['user_id']}'";
 //echo $sql;
                         mysqli_query($con,$sql);//直接会员加8
