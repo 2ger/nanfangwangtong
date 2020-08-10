@@ -9,7 +9,7 @@ $cny=(float)trim(htmlspecialchars($_REQUEST['total_fee']));     //付款金额
 $cny = number_format($cny, 2, '.', '');
 $type=trim(htmlspecialchars($_REQUEST['pay']));   //支付方式
 //$type=3;
-$key="153906557620544";   //支付KEY12位的APPID
+$key="154392788823878";   //支付KEY12位的APPID
 $mobile="0";   //预留参数请设置传递值为
 $renyitype = 1;// 金额是否是任意金额 0 不是任意金额(固定金额)（调用对应金额二维码系统的二维码图片） 
                // 1 是任意金额 如果二维码系统没有上传对应金额二维码则自动生成记录且调用ewmimages目录下的 tyali.jpg tyten.jpg tywx.jpg 对应支付方式的任意金额二维码
