@@ -1,11 +1,14 @@
 <?php
-//说明：推荐奖励, 增加1198档
+//说明：推荐奖励, 增加1188档
 //时间：2018-11-15 18:46:21
 define('BASEPATH',"/");
-file_put_contents("gude001.txt", date("Y-m-d H:i:s",time()).json_encode($_REQUEST)."\r\n",FILE_APPEND);
+file_put_contents("gude001.txt", $_REQUEST.date("Y-m-d H:i:s",time()).json_encode($_REQUEST)."\r\n",FILE_APPEND);
+
+// test
+// Array2020-08-11 03:22:01{"PayJe":"1.00","PayMore":"728","key":"48644409","pay":"3","ddh":"10159708735891584737264967970528","appid":"154392788823878","moneyactual":"1.00","posttype":"3"}
 //以下代码请不要修改=======================================================================================================================================
 //下面是接收软件返回的信息，然后通过这些信息在对网站的订单等进行处理
-$key="77052307";	//改成你的秘钥（登陆网站在会员中心的用户信息页面里）
+$key="48644409";	//改成你的秘钥（登陆网站在会员中心的用户信息页面里）
 $pay       =   trim(htmlspecialchars($_REQUEST['pay'])); //接收支付方式参数 1 代表支付宝 2 代表QQ钱包 3 代表微信  基本用不到
 $ddh	    =	isset($_REQUEST["ddh"])?$_REQUEST["ddh"]:"";  //接收交易号这个是支付宝财付通微信的 官方流水账号   能用到
 $Money2		=	isset($_REQUEST["PayJe"])?$_REQUEST["PayJe"]:0;
@@ -32,7 +35,7 @@ $superfan3= 15;
 $superfan4= 18;
 
 $supervip = 0;
-if($money==1198){
+if($money==1188){
     $supervip = 1;
     $supertxt = '超级';
 }
@@ -108,12 +111,12 @@ if ($bjsnk===0)
                 $level4_user_id_arr[]=$row['id'];
                 $yi=$row['userid'];
                 if($row['groupid'] && $row['supervip']){
-                    echo "1级同时交298+1198的 多拿一份 298的\n";
-                    $sql="update tbl_user set money=money+{$fan1} where userid='{$yi}'";
-                    mysqli_query($con,$sql);//直接会员加8
-                    //写入交易日志
-                    $sql="insert into tbl_acount_log (user_id,username,shouru,addtime,leixing) values ({$row['id']},'{$row['userid']}',{$fan1},{$time},'1级推荐VIP会员')";
-                    mysqli_query($con,$sql);
+                    // echo "1级同时交298+1198的 多拿一份 298的\n";
+                    // $sql="update tbl_user set money=money+{$fan1} where userid='{$yi}'";
+                    // mysqli_query($con,$sql);//直接会员加8
+                    // //写入交易日志
+                    // $sql="insert into tbl_acount_log (user_id,username,shouru,addtime,leixing) values ({$row['id']},'{$row['userid']}',{$fan1},{$time},'1级推荐VIP会员')";
+                    // mysqli_query($con,$sql);
 
                 }
                 if($supervip && $row['supervip']){

@@ -122,7 +122,7 @@ class Ad extends Restserver\Libraries\REST_Controller {
             if(in_array($k,$ads_id)){
                 $a='<a href="task_01_xq.html?id='.$k.'" style="float:right;width:auto; line-height:1.5rem; position:absolute; top:18px; right:20px;">今日已领取';
             }else{
-                if($groupid==1){
+                if($groupid==1 || $supervip){
                     $a='<a href="javascript:xq('.$k.');" style="float:right;width:auto; line-height:1.5rem; position:absolute; top:18px; right:20px;">';
                 }else{
                     $a='<a href="javascript:void(0);" onclick="mui.alert(\'申请成为VIP会员可以领取任务！\');" style="float:right;width:auto; line-height:1.5rem; position:absolute; top:18px; right:20px;">';
@@ -141,11 +141,11 @@ class Ad extends Restserver\Libraries\REST_Controller {
             $html.='<li class="mui-table-view-cell mui-media" style="position:relative;">
             <img class="mui-media-object mui-pull-left" src="images/logo108.png">
             <div class="mui-media-body">
-                <a href="task_01_xq.html?id='.$k.'">'.$v['title'].' - '.$type.'</a>
+                <a href="task_01_xq.html?id='.$k.'">'.$v['title'].'</a>
             </div>
             '.$a.'</a>
         
-    </li>';
+    </li>';//.' - '.$type
            
         }
         $html.="</ul>";
@@ -307,7 +307,7 @@ EOF;
             $this->db->where("user_id", $this->userinfo->id);
             $data_arr=array(
                 // 'imagepath'=>$image_data,// 不传图片，自动审核 
-                'ischeck'=>0//1已审核，2未审核,0未上传
+                'ischeck'=>1//1已审核，2未审核,0未上传
             );
             $this->db->update("ads_task",$data_arr);
             //自动审核 end

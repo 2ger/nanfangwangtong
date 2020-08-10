@@ -121,7 +121,7 @@ if ($isweixin==0){
             </div>
             <div class="row paypage-info">
               <div class="col-lg-6 col-lg-offset-2 col-md-7 col-md-offset-1 col-xs-10 col-xs-offset-0">
-                <p class="paypage-desc">会员ID/订单号：<?php echo $trade_no;?></p>
+                <p class="paypage-desc">订单号：<?php echo $trade_no;?></p>
               </div>
               <div class="col-lg-2 col-md-3 col-xs-2 clearfix">
                 <p class="paypage-price">
@@ -136,7 +136,7 @@ if ($isweixin==0){
 				<?php if($type==2){ ?><p id="paypage-tip">QQ钱包支付可保存二维码到手机相册打开QQ进行扫一扫识别</p><?php } ?>
 
 
-        		 <img class="ft-center" width="168" height="168" src="/ewmimages/<?php if ($fenzuid==99999){echo $picurlfx;}else{ echo $ewm;}?>?v=<?php echo time();?>"></font>
+        		 <img class="ft-center" width="80%"  src="/ewmimages/<?php if ($fenzuid==99999){echo $picurlfx;}else{ echo $ewm;}?>?v=<?php echo time();?>"></font>
 				 <input name="payAmount" id="payAmount" value="<?php echo $cny;?>" type="hidden">
 				 <input name="title" id="title" value="<?php echo $trade_no;?>" type="hidden">
 				 <input name="APPID" id="APPID" value="<?php echo $key;?>" type="hidden">
@@ -207,7 +207,9 @@ if ($isweixin==1 and $type==2){
                 <?php if($type==3){ ?><p id="paypage-tip"><b>微信</b>保存二维码到手机相册打开微信扫一扫识别截图进行支付</p><?php } ?>
 				<?php if($type==1){ ?><p id="paypage-tip"><a href="<?php echo $_SESSION['ewmurl']; ?>">支付宝APP如果没有自动跳转可尝试点击此处进行跳转支付</a></p><?php } ?>
 				<?php if($type==2){ ?><p id="paypage-tip">QQ钱包支付可保存二维码到手机相册打开QQ进行扫一扫识别</p><?php } ?>
-        		 <img class="ft-center" width="168" height="168" src="/ewmimages/<?php if ($fenzuid==99999){echo $picurlfx;}else{ echo $ewm;}?>?v=<?php echo time();?>"></font>
+        		 <img class="ft-center" width="80%"  src="/ewmimages/<?php if ($fenzuid==99999){echo $picurlfx;}else{ echo $ewm;}?>?v=<?php echo time();?>">
+<!-- 微信支付在这里修改 -->
+            </font>
 				 <input name="payAmount" id="payAmount" value="<?php echo $cny;?>" type="hidden">
 				 <input name="title" id="title" value="<?php echo $trade_no;?>" type="hidden">
 				 <input name="APPID" id="APPID" value="<?php echo $key;?>" type="hidden">

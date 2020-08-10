@@ -42,7 +42,10 @@
         
         <div style="text-align: center; padding-top:15px; font-size:28px;">支付完成或订单超时</div>
         
-        <div style="text-align: center; padding-top:15px;">登录手机APP查看</div>
+        <!-- <div style="text-align: center; padding-top:15px;" onclick="plus.runtime.restart();">返回APP查看</div> -->
 
+<center>
+        <button type="button" style="text-align: center; padding:15px;" class="mui-btn mui-btn-success" onclick="plus.runtime.restart();">返回APP查看</button>
+</center>
     </body>
 </html>
