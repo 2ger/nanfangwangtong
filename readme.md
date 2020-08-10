@@ -19,12 +19,14 @@
 1. api\application\config\database.php
 3. api\ewmadmin\inc\config.php
 1. api/ldpay/jieshou.php 修改u支付key
+1. api/ldpay/alipay.php 修改u支付 appid
 1. api\application\controllers\Register.php 修改短信宝账号
 1. www\js\mui.min.js  修改api 根目录
 
 #### 重要文件
 1. 充值返利：aip/ldpay/jieshou.php  修改u支付key
 1. 发圈返利: admin\admin\adtasklist.php
+1. api/ldpay/alipay.php 支付页面修改  211行
 
 #### 需要资料
 1. logo  www\images\logo.   + 34.png

@@ -32,7 +32,7 @@ class Index  extends Restserver\Libraries\REST_Controller{
      * 如何赚佣
      */
     public function zhuanyongguize_get(){
-        // 或支付1198成为超级VIP
+        // 或支付1188成为超级VIP
 $html=<<<EOF
         <div style="background-color: #FFF; margin-top:44px; padding:0 30px;">
 			<p style="line-height:4; color:#FF0000;">加入南方网通，开启躺赚人生，如何发圈赚佣？</p>
@@ -192,7 +192,7 @@ EOF;
         
         if($r->supervip==1){
             
-$html2 .=<<<EOF
+$html .=<<<EOF
 			
 			<div style="text-align: center; margin:30px 0; font-size:1.5rem; color:green;">
 				您已成为超级VIP会员, 三倍赚钱！
@@ -201,14 +201,14 @@ $html2 .=<<<EOF
 EOF;
         }else{
         //20181102
-$html2 .=<<<EOF
+$html .=<<<EOF
 			
 			<div style="text-align: center; margin:30px 0; text-decoration: line-through;">
 			超级VIP	原价：￥<b>1998</b>
 			</div>
 			
 			<div style="text-align: center; margin:30px 0; font-size:1.5rem; color:#FF0000">
-				超级VIP 优惠价：￥<b>1198</b>
+				超级VIP 优惠价：￥<b>1188</b>
 			</div>
 			
 			<div style="margin:0 30px;">
@@ -254,18 +254,18 @@ $html=<<<EOF
                 <form action="http://{$_SERVER['SERVER_NAME']}/api/ldpay/alipay.php" method="post" name="alipayment">
                 <input type="hidden" name="out_trade_no" value="{$order_id}">
                 <input type="hidden"  name="WIDsubject" value="升级超级VIP会员">
-                <input type="hidden"  name="total_fee" value="1198">
+                <input type="hidden"  name="total_fee" value="1188">
                 <input type="hidden"  name="pay" value="3">
-                <button type="submit" class="mui-btn mui-btn-success mui-btn-block">微信支付1198元</button>
+                <button type="submit" class="mui-btn mui-btn-success mui-btn-block">微信支付1188元</button>
                 </form>
 
 <!--
                 <form action="http://{$_SERVER['SERVER_NAME']}/api/ldpay/alipay.php" method="post" name="alipayment">
                 <input type="hidden" name="out_trade_no" value="{$order_id}">
                 <input type="hidden"  name="WIDsubject" value="升级VIP会员">
-                <input type="hidden"  name="total_fee" value="1198">
+                <input type="hidden"  name="total_fee" value="1188">
                 <input type="hidden"  name="pay" value="1">
-                <button type="submit" class="mui-btn mui-btn-primary mui-btn-block">支付宝充值1198元</button>
+                <button type="submit" class="mui-btn mui-btn-primary mui-btn-block">支付宝充值1188元</button>
                 </form>
  -->
 EOF;
