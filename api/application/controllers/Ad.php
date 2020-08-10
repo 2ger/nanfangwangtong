@@ -299,39 +299,163 @@ EOF;
         $data=array();
         $aid= $this->post('aid');
         $image_data= $this->post("image_data");
-	/* 	 $data=array(
-                'status'=>200,
-                'error'=>$this->post("image_data");,
-                'data'=>array()
-            );
-        $this->response($data);
-		
-		
-		$s=str_split($image_data,5000);
-		
-		
-		$log=array(
-               'img'=>strlen($image_data),
-			     'img0'=>$image_data,
-			   'img1'=>$s[1],
-			   'img2'=>$s[2],
-			   
-			   
-			   
-				  'time'=>time()
-            );
-		
-		 $this->db->insert("log",$log);
-		  */
 		 
-        if($aid && $image_data){
+
+        if($aid && $image_data){//
+            //自动审核
             $this->db->where("aid",$aid);
             $this->db->where("user_id", $this->userinfo->id);
             $data_arr=array(
-                'imagepath'=>$image_data,
-                'ischeck'=>2
+                // 'imagepath'=>$image_data,// 不传图片，自动审核 
+                'ischeck'=>0//1已审核，2未审核,0未上传
             );
             $this->db->update("ads_task",$data_arr);
+            //自动审核 end
+
+            //自动奖励
+            $moneys = [10,6,3,3,0.3];
+            if($this->userinfo->supervip){
+                 $moneys = [30,18,9,9,0.9];
+            }
+            //自己
+            //加奖励
+           $this->db->where('id', $this->userinfo->id);
+            $array=array(
+                'money'=> $this->userinfo->money+$moneys[0]
+            );
+            $this->db->update("user",$array);
+            //写日志
+           $arr=array(
+                    'user_id'=>$this->userinfo->id,
+                    'username'=>$this->userinfo->userid,
+                    'shouru'=>$moneys[0],
+                    'zhichu'=>0,
+                    'remark'=>'',
+                    'addtime'=>time(),
+                    'leixing'=>'用户发圈奖励'
+             );
+             $this->db->insert("acount_log",$arr);
+
+    //一级
+    if(trim($this->userinfo->shuyu)){
+            $this->db->where("userid",$this->userinfo->shuyu);
+            $q=$this->db->get("user");
+           $row= $r=$q->row();
+              //加奖励
+           $this->db->where('id', $row->id);
+            $array=array(
+                'money'=> $row->money+$moneys[1]
+            );
+            $this->db->update("user",$array);
+            //写日志
+           $arr=array(
+                    'user_id'=>$row->id,
+                    'username'=>$row->userid,
+                    'shouru'=>$moneys[1],
+                    'zhichu'=>0,
+                    'remark'=>'',
+                    'addtime'=>time(),
+                    'leixing'=>'1级发圈奖励'
+             );
+             $this->db->insert("acount_log",$arr);
+
+            //二级
+            if(trim($row->shuyu)){
+
+            $this->db->where("userid",$row->shuyu);
+            $q=$this->db->get("user");
+           $row= $r=$q->row();
+              //加奖励
+           $this->db->where('id', $row->id);
+            $array=array(
+                'money'=> $this->row+$moneys[2]
+            );
+            $this->db->update("user",$array);
+            //写日志
+           $arr=array(
+                    'user_id'=>$row->id,
+                    'username'=>$row->userid,
+                    'shouru'=>$moneys[2],
+                    'zhichu'=>0,
+                    'remark'=>'',
+                    'addtime'=>time(),
+                    'leixing'=>'2级发圈奖励'
+             );
+             $this->db->insert("acount_log",$arr);
+              //3级
+            if(trim($row->shuyu)){
+
+            $this->db->where("userid",$row->shuyu);
+            $q=$this->db->get("user");
+           $row= $r=$q->row();
+              //加奖励
+           $this->db->where('id', $row->id);
+            $array=array(
+                'money'=> $row->money+$moneys[3]
+            );
+            $this->db->update("user",$array);
+            //写日志
+           $arr=array(
+                    'user_id'=>$row->id,
+                    'username'=>$row->userid,
+                    'shouru'=>$moneys[3],
+                    'zhichu'=>0,
+                    'remark'=>'',
+                    'addtime'=>time(),
+                    'leixing'=>'3级发圈奖励'
+             );
+             $this->db->insert("acount_log",$arr);
+
+             //往上找经理
+            do{
+                if(trim($row->shuyu)){
+
+            $this->db->where("userid",$row->shuyu);
+            $q=$this->db->get("user");
+           $row= $r=$q->row();
+                    
+                    if(!empty($row)){
+                        // var_dump($row);exit;
+                        if($row->groupid ==2){
+                            //加奖励
+                   $this->db->where('id', $row->id);
+                    $array=array(
+                        'money'=> $row->money+$moneys[4]
+                    );
+                    $this->db->update("user",$array);
+                    //写日志
+                   $arr=array(
+                            'user_id'=>$row->id,
+                            'username'=>$row->userid,
+                            'shouru'=>$moneys[4],
+                            'zhichu'=>0,
+                            'remark'=>'',
+                            'addtime'=>time(),
+                            'leixing'=>'营销经理奖励'
+                     );
+             $this->db->insert("acount_log",$arr);
+                        }
+                    }
+                }else{
+                    break;
+                }
+            }while(true);
+
+         }
+
+                
+
+            //             }
+                        
+            //         }
+            //     }
+                
+            // }
+            
+             }
+        
+         }
+            //自动奖励结束
             $data=array(
                 'status'=>200,
                 'error'=>'截图已提交，请等待审核！',//.strlen($image_data)

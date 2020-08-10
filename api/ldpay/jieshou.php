@@ -268,6 +268,7 @@ if ($bjsnk===0)
 echo 'Key';//返回Key秘钥错误
 }
 
+//直推+间推两级超过50人，升级为经理
 function uplevel($user_id,$con){
 
 	$sql="select * from tbl_user where id='{$user_id}'";

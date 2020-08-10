@@ -42,7 +42,7 @@ $html=<<<EOF
 			</p>
 			<p style="border-left:1px solid #e7e7e7; height:50px; margin-bottom:0; padding-left:15px; position:relative;">
 				<span class="mui-badge mui-badge-danger" style="position:absolute; left:-10px;top:2px;">2</span>
-				支付298元成为VIP 
+				支付288元成为VIP 
 			</p>
 			<p style="border-left:1px solid #e7e7e7; height:50px; margin-bottom:0; padding-left:15px; position:relative;">
 				<span class="mui-badge mui-badge-danger" style="position:absolute; left:-10px;top:2px;">3</span>
@@ -168,7 +168,7 @@ $html .=<<<EOF
 			</div>
 			
 			<div style="text-align: center; margin:30px 0; font-size:1.5rem; color:#FF0000">
-				VIP 优惠价：￥<b>298</b>
+				VIP 优惠价：￥<b>288</b>
 			</div>
 			
 			<div style="margin:0 30px;">
@@ -243,7 +243,7 @@ EOF;
                     $data_array=array(
                         'user_id'=>$r->id,
                         'username'=>$r->userid,
-                        'money'=>298,
+                        'money'=>288,
                         'addtime'=>time()
                     );
                     $this->db->insert('pay_log',$data_array);
@@ -275,16 +275,16 @@ $html=<<<EOF
                 <form action="http://{$_SERVER['SERVER_NAME']}/api/ldpay/alipay.php" method="post" name="alipayment">
                 <input type="hidden" name="out_trade_no" value="{$order_id}">
                 <input type="hidden"  name="WIDsubject" value="升级VIP会员">
-                <input type="hidden"  name="total_fee" value="298">
+                <input type="hidden"  name="total_fee" value="288">
                 <input type="hidden"  name="pay" value="3">
-                <button type="submit" class="mui-btn mui-btn-success mui-btn-block">微信支付298元</button>
+                <button type="submit" class="mui-btn mui-btn-success mui-btn-block">微信支付288元</button>
                 </form>
 
 <!--
                 <form action="http://{$_SERVER['SERVER_NAME']}/ldpay/alipay.php" method="post" name="alipayment">
                 <input type="hidden" name="out_trade_no" value="{$order_id}">
                 <input type="hidden"  name="WIDsubject" value="升级VIP会员">
-                <input type="hidden"  name="total_fee" value="298">
+                <input type="hidden"  name="total_fee" value="288">
                 <input type="hidden"  name="pay" value="1">
                 <button type="submit" class="mui-btn mui-btn-primary mui-btn-block">支付宝付款</button>
                 </form>
