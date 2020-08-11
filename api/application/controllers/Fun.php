@@ -19,7 +19,7 @@ class Fun extends CI_Controller {
     }
     
     public function tongzhi(){
-        echo "有新版本，请前往下载";
+        echo "南方网通APP正式运营！";
     }
     
 }

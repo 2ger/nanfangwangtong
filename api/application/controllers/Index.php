@@ -28,6 +28,30 @@ class Index  extends Restserver\Libraries\REST_Controller{
         $data['content'] = $r->content;
         die(json_encode($data,true));
     }
+    //公告详情
+    public function gonggaoxq_get(){
+        $html=<<<EOF
+       <h3 style="text-align: center; padding:20px 0; font-size:1.3rem;">南方网通的财富裂变规则</h3>
+            <!--<div style="text-align:right; color:#999999; padding: 0 10px; border-bottom:1px solid #cfcfcf; height:30px; font-size:0.9rem;">2018-10-18 13:45:50</div>-->
+            
+            <div style="font-size:14px;padding:20px 5px; color:#333;" id="gonggao">
+                <P>尊敬的南方网通用户您好：</P>
+                <P>如果你推荐30个人，团队的每个人都推荐30个人，下面我来给大家计算一下：</P>
+                <P>1.自己发圈赚钱20元/天</P>
+                <P>2.分享好友赚钱24元/天</P>
+                <P>3.推荐广告投放商赚钱30%佣金</P>
+                <P>推荐奖励：一级：30人*20元=600元</P>
+                <P>推荐奖励：二级：30人*30人*10元=9000元</P>
+                <P>推荐奖励：三级：30人*30人*30人*5元=135000元</P>
+                <P>发圈奖励：一级：30人*12元=360元/天</P>
+                <P>发圈奖励：二级：30人*30人*6元=5400元/天</P>
+                <P>发圈奖励：三级：30人*30人*30人*6元=162000元/天</P>
+                <P>这里还没算你直接推荐50人升级为营销经理的收入！自己算下，而我们做的只是投入了288元每天发两条朋友圈并分享出去！</P>
+            
+            </div>
+EOF;
+        echo $html;
+    }
     /**
      * 如何赚佣
      */
