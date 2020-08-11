@@ -211,30 +211,38 @@ class Ad extends Restserver\Libraries\REST_Controller {
         // $key= array_search($id, $this->list);
         
 $html=<<<EOF
-        <p>文案[长按复制]</p>
-        <textarea style="width:100%; height:180px; line-height:1rem;" readonly>{$this->list[$id]['content']}</textarea>
+       
+        <textarea style="width:100%; height:100px; line-height:1rem;" readonly id="adtext">{$this->list[$id]['content']}</textarea>
         <p>图片</p>
         <ul class="mui-table-view mui-grid-view mui-grid-9">
 					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 					    <a href="#" style="max-height:100px;">
-					        <img src="{$this->list[$id]['tu1']}" width="100%" data-preview-src="" data-preview-group="1">
+					        <img src="{$this->list[$id]['tu1']}" id="ad1" width="100%" data-preview-src="" data-preview-group="1">
 					    </a>
 					</li>
 					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 					    <a href="#" style="max-height:100px;">
-					        <img src="{$this->list[$id]['tu2']}" width="100%" data-preview-src="" data-preview-group="1">
+					        <img src="{$this->list[$id]['tu2']}" id="ad2" width="100%" data-preview-src="" data-preview-group="1">
 					        </a>
 					</li>
 					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 					    <a href="#" style="max-height:100px;">
-					        <img src="{$this->list[$id]['tu3']}" width="100%" data-preview-src="" data-preview-group="1">
-                            <!--
-<img src="http://{$_SERVER['SERVER_NAME']}/erweima/{$this->userinfo->id}_haibao.png" width="100%" data-preview-src="" data-preview-group="1">
--->
+					        <img src="{$this->list[$id]['tu3']}" id="ad3" width="100%" data-preview-src="" data-preview-group="1">
+                           
 					    </a>
 					</li>
 				
 				    </ul>
+
+                    <ul class="mui-table-view mui-grid-view  mui-grid-9">
+                    <li class=" mui-col-xs-4 mui-col-sm-3 mui-table-view-cell">
+                            <a onclick="savePicture('{$this->list[$id]['tu1']}')">下载图片</a>
+                    </li>
+                    <li class=" mui-col-xs-4 mui-col-sm-3 mui-table-view-cell">
+                            <a onclick="savePicture('{$this->list[$id]['tu2']}')">下载图片</a>
+                    </li>
+                    </ul>
+
 EOF;
         
         echo $html;
