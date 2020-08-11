@@ -174,7 +174,7 @@ EOF;
         $q=$this->db->get("user");
         $r=$q->row();
       $html = '<img src="images/18.png" style="width:100%;">';  
-        if($r->groupid==1){
+        if($r->groupid){
             
 $html .=<<<EOF
 			

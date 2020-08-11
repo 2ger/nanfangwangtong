@@ -122,7 +122,7 @@ class Ad extends Restserver\Libraries\REST_Controller {
             if(in_array($k,$ads_id)){
                 $a='<a href="task_01_xq.html?id='.$k.'" style="float:right;width:auto; line-height:1.5rem; position:absolute; top:18px; right:20px;">今日已领取';
             }else{
-                if($groupid==1 || $supervip){
+                if($groupid || $supervip){
                     $a='<a href="javascript:xq('.$k.');" style="float:right;width:auto; line-height:1.5rem; position:absolute; top:18px; right:20px;">';
                 }else{
                     $a='<a href="javascript:void(0);" onclick="mui.alert(\'申请成为VIP会员可以领取任务！\');" style="float:right;width:auto; line-height:1.5rem; position:absolute; top:18px; right:20px;">';
@@ -141,11 +141,11 @@ class Ad extends Restserver\Libraries\REST_Controller {
             $html.='<li class="mui-table-view-cell mui-media" style="position:relative;">
             <img class="mui-media-object mui-pull-left" src="images/logo108.png">
             <div class="mui-media-body">
-                <a href="task_01_xq.html?id='.$k.'">'.$v['title'].'</a>
+                <a href="task_01_xq.html?id='.$k.'">'.$v['title'].' - '.$type.'</a>
             </div>
             '.$a.'</a>
         
-    </li>';//.' - '.$type
+    </li>';//
            
         }
         $html.="</ul>";
@@ -307,6 +307,37 @@ EOF;
         $data=array();
         $aid= $this->post('aid');
         $image_data= $this->post("image_data");
+
+        //两个小时后可发
+            $this->db->where("aid",$aid);
+            $this->db->where("user_id", $this->userinfo->id);
+            $q=$this->db->get("ads_task");
+           $task = $q->row();
+           if(time() - $task->addtime <60*60*2 ){
+                $data=array(
+                    'status'=>FALSE,
+                    'error'=>'领任务后两个小时后才可提交！',
+                    'data'=>array()
+                );
+                $this->response($data);
+                die();
+           }
+
+//是否超级vip广告
+            $this->db->where("id",$aid);
+            $q=$this->db->get("ads");
+           $ad = $q->row();
+
+ //自动奖励
+            $moneys = [10,6,3,3,0.3];
+            //超级vip
+            if($ad->supervip){
+                 $moneys = [30,18,9,9,0.9];
+            }
+            //星期天为公益日
+             if(date('w') ==0){
+                 $moneys = [0,0,0,0,0];
+            }
 		 
 
         if($aid && $image_data){//
@@ -320,11 +351,6 @@ EOF;
             $this->db->update("ads_task",$data_arr);
             //自动审核 end
 
-            //自动奖励
-            $moneys = [10,6,3,3,0.3];
-            if($this->userinfo->supervip){
-                 $moneys = [30,18,9,9,0.9];
-            }
             //自己
             //加奖励
            $this->db->where('id', $this->userinfo->id);
