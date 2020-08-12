@@ -160,7 +160,7 @@ $(document).ready(function(e) {
     </div>
 <?php
 	if(empty($row['shuyu'])){
-		$shuyu2 = $shuyu;
+		// $shuyu2 = $shuyu;//admin的上线为admin会无限循环
 	}else {
 		$shuyu2 = $row['shuyu'];
 	}
