@@ -314,13 +314,13 @@ EOF;
             $q=$this->db->get("ads_task");
            $task = $q->row();
            if(time() - $task->addtime <60*60*2 ){
-                $data=array(
-                    'status'=>FALSE,
-                    'error'=>'领任务后两个小时后才可提交！',
-                    'data'=>array()
-                );
-                $this->response($data);
-                die();
+                // $data=array(
+                //     'status'=>FALSE,
+                //     'error'=>'领任务后两个小时后才可提交！',
+                //     'data'=>array()
+                // );
+                // $this->response($data);
+                // die();
            }
 
 //是否超级vip广告
@@ -341,17 +341,7 @@ EOF;
 		 
 
         if($aid && $image_data){//
-            //自动审核
-            $this->db->where("aid",$aid);
-            $this->db->where("user_id", $this->userinfo->id);
-            $data_arr=array(
-                // 'imagepath'=>$image_data,// 不传图片，自动审核 
-                'ischeck'=>1//1已审核，2未审核,0未上传
-            );
-            $this->db->update("ads_task",$data_arr);
-            //自动审核 end
-
-//防重提交
+            //防重提交
             $this->db->where("aid",$aid);
             $this->db->where("user_id", $this->userinfo->id);
             $q=$this->db->get("ads_task");
@@ -365,6 +355,16 @@ EOF;
                 $this->response($data);
                 die();
              }
+             
+            //自动审核
+            $this->db->where("aid",$aid);
+            $this->db->where("user_id", $this->userinfo->id);
+            $data_arr=array(
+                // 'imagepath'=>$image_data,// 不传图片，自动审核 
+                'ischeck'=>1//1已审核，2未审核,0未上传
+            );
+            $this->db->update("ads_task",$data_arr);
+            //自动审核 end
 
 
 
