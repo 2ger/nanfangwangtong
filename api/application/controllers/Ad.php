@@ -351,6 +351,23 @@ EOF;
             $this->db->update("ads_task",$data_arr);
             //自动审核 end
 
+//防重提交
+            $this->db->where("aid",$aid);
+            $this->db->where("user_id", $this->userinfo->id);
+            $q=$this->db->get("ads_task");
+             $task = $q->row();
+             if($task->ischeck){
+                  $data=array(
+                    'status'=>200,
+                    'error'=>'截图已提交，请等待审核！',//.strlen($image_data)
+                    'data'=>array()
+                 );
+                $this->response($data);
+                die();
+             }
+
+
+
             //自己
             //加奖励
            $this->db->where('id', $this->userinfo->id);
